@@ -1,0 +1,4 @@
+class {{ source.name | to_code_safe | to_pascal_case }}(MTCEnum):
+	{{ for item in source.items }}
+	{{ item.name | to_code_safe | to_pascal_case }} = "{{ item.summary }}"
+	{{ end }}

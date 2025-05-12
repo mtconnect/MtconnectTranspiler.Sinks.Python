@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    registry:
+      credentials:
+        - type: "git_source"
+          host: "github.com"
+          username: "${{ github.repository_owner }}"
+          password: "${{ secrets.GITHUB_TOKEN }}"
+        - type: "nuget"
+          source: "https://nuget.pkg.github.com/mtconnect/index.json"
+          username: "${{ github.repository_owner }}"
+          password: "${{ secrets.GITHUB_TOKEN }}"
+    open-pull-requests-limit: 10
+    # Define the packages to update
+    update:
+      - package-regex: ".*"
+        include-prereleases: true
