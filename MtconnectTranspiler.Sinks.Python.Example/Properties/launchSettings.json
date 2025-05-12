@@ -2,7 +2,7 @@
   "profiles": {
     "MtconnectTranspiler.Sinks.Python.Example": {
       "commandName": "Project",
-      "commandLineArgs": "\"$(SolutionDir)Models\" \"\\\\lightworksnas\\work\\True Analytics Solutions\\MTConnect Standard\\2.4.0\\MTConnect SysML Model.xml\""
+      "commandLineArgs": "\"$(SolutionDir)MtconnectTranspiler.Sinks.Python\\Models\" \"\\\\lightworksnas\\work\\True Analytics Solutions\\MTConnect Standard\\2.4.0\\MTConnect SysML Model.xml\""
     }
   }
 }
