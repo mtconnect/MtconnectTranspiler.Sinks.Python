@@ -1,0 +1,2 @@
+class DataItemTypeEnum(MTCEnum):
+	

@@ -1,20 +1,28 @@
-{# Auto-generated Python class from PythonClass Scriban template #}
-{%- if source.summary %}
-\"\"\"
-{{ source.summary.text | string.trim }}
-\"\"\"
-{%- endif %}
+# Auto-generated Python class from MtconnectTranspiler.Sinks.Python.Example/Templates/Python.Class.Scriban template #
 
-class {{ source.name }}{% if source.generalization %}({{ source.generalization }}){% endif %}:
-    {%- if source.properties.size == 0 %}
+# NOTE: This is the SysML markdown summary
+{{~ if source.summary != "" }}
+"""
+{{ source.summary }}
+"""
+{{~ end }}
+
+class {{ source.name }}{{ if source.generalization }}({{ source.generalization }}){{ end }}:
+    {{~ if source.properties.size == 0 }}
     pass
-    {%- else %}
+    {{~ else }}
 
     def __init__(self):
-        {%- for prop in source.properties %}
-        {%- assign default = prop.default-value | string.trim %}
-        {%- assign python_type = prop.type | string.downcase %}
-        {%- assign safe_name = prop.name %}
-        self.{{ safe_name }}{{ " = " }}{{ default | default: "None" }}
-        {%- endfor %}
-    {%- endif %}
+    {{~ if source.properties.size > 0 }}
+        {{~ for prop in source.properties }}
+        # TODO: Import {{ prop.type }} and initialize here
+        {{~ if prop.summary != "" }}
+        # NOTE: This is the SysML markdown summary
+        """
+        {{ prop.summary }}
+        """
+        {{~ end }}
+        self.{{ prop.name | to_code_safe | to_pascal_case }} = {{ if prop.default_value != "" }}"{{ prop.default_value }}"{{ else }}"None"{{ end }}
+        {{~ end }}
+    {{~ end }}
+    {{~ end }}

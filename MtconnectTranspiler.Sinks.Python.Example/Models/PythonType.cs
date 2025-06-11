@@ -51,7 +51,8 @@ namespace MtconnectTranspiler.Sinks.Python.Models
             get
             {
                 if (string.IsNullOrEmpty(_name))
-                    _name = PythonHelperMethods.ToPascalCase(base.SysML_Name);
+                    _name = PythonHelperMethods.ToPascalCase(base.SysML_Name)
+                        ?? base.SysML_Name;
                 return _name;
             }
             set {

@@ -1,0 +1,27 @@
+# Auto-generated Python class from MtconnectTranspiler.Sinks.Python.Example/Templates/Python.Class.Scriban template #
+
+# NOTE: This is the SysML markdown summary
+
+"""
+&#10;&#10;&#10;accumulation of actions, items, or activities being counted that conform to specification or expectation.&#10;
+
+"""
+
+
+class UnloadCount.GoodClass(UnloadCountClass):
+
+
+    def __init__(self):
+
+
+        # TODO: Import DataItemSubTypeEnumMetaClass and initialize here
+
+        # NOTE: This is the SysML markdown summary
+        """
+        
+        """
+
+        self.SubType = "GOOD"
+
+
+
