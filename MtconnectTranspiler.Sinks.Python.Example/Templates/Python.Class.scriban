@@ -1,3 +1,20 @@
-"""
- TODO
-"""
+{# Auto-generated Python class from PythonClass Scriban template #}
+{%- if source.summary %}
+\"\"\"
+{{ source.summary.text | string.trim }}
+\"\"\"
+{%- endif %}
+
+class {{ source.name }}{% if source.generalization %}({{ source.generalization }}){% endif %}:
+    {%- if source.properties.size == 0 %}
+    pass
+    {%- else %}
+
+    def __init__(self):
+        {%- for prop in source.properties %}
+        {%- assign default = prop.default-value | string.trim %}
+        {%- assign python_type = prop.type | string.downcase %}
+        {%- assign safe_name = prop.name %}
+        self.{{ safe_name }}{{ " = " }}{{ default | default: "None" }}
+        {%- endfor %}
+    {%- endif %}

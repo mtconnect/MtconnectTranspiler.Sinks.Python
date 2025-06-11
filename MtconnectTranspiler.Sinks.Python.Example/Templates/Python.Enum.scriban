@@ -1,4 +1,4 @@
 class {{ source.name | to_code_safe | to_pascal_case }}(MTCEnum):
 	{{ for item in source.items }}
-	{{ item.name | to_code_safe | to_pascal_case }} = "{{ item.summary }}"
+	{{ item.name | to_code_safe | to_pascal_case }} = "{{ item.summary | string.replace "&#10;" " " | string.replace "<\r\n>" " " | string.replace "\r" " " | string.replace "\n" " " | string.replace "\"" "\"\"" | string.replace "\\" "\\\\" }}"
 	{{ end }}

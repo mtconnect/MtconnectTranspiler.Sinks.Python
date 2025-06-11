@@ -95,6 +95,7 @@ namespace MtconnectTranspiler.Sinks.Python.Models
                 ?.Select(o => new Property(model, o))
                 ?.ToList()
                 ?? new List<Property>();
+
             var propertyGroupings = _properties.GroupBy(o => o.Name);
             foreach (var propertyGrouping in propertyGroupings)
             {
